@@ -1,22 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import { Duration } from './components/duration'; 
 
 function App() {
+  const [showPageDuration, setShowPageDuration] = useState(false); 
+
+  const handleClick = () => {
+    setShowPageDuration(true); 
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <h1>Pick an exercise!</h1>
+
+        <button onClick={handleClick}>Push-up</button>
+        <button>Plank</button>
+        <button>Running</button>
+
+        {showPageDuration && <Duration />} 
+
       </header>
     </div>
   );
