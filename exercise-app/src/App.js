@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { Duration } from './components/duration'; 
+import Duration from "./components/duration";
 
 function App() {
   const [showPageDuration, setShowPageDuration] = useState(false); 
