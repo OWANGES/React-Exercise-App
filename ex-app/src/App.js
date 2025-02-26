@@ -1,14 +1,15 @@
 import './App.css';
 import React, { useState } from 'react';
-import Duration from "./components/DurationFolder/DurationPage";
-import Rep from "./components/RepFolder";  
+import Duration from "./components/DurationFolder";
+import Rep from "./components/RepFolder";
+import Highscore from "./components/HighScore"; 
 
 function App() {
   const [showPageDuration, setShowPageDuration] = useState(false);
   const [showPageRep, setShowPageRep] = useState(false);
   const [exercise, setExercise] = useState(''); 
   const [isPromptVisible, setIsPromptVisible] = useState(false); 
-
+  const [highestRep, setHighestRep] = useState(0); 
 
   const handleExerciseSelection = (exerciseType) => {
     setExercise(exerciseType);
@@ -29,13 +30,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Pick an exercise!</h1>
-
-
-        <button onClick={() => handleExerciseSelection('Push-up')}>Push-up</button>
-        <button onClick={() => handleExerciseSelection('Plank')}>Plank</button>
-        <button onClick={() => handleExerciseSelection('Running')}>Running</button>
-
+        <div className="container">
+          <h1>Pick an Exercise</h1>
+        </div>
+        
+        <div className="grid-container">
+          <button onClick={() => handleExerciseSelection('Push-up')}>Push-up</button>
+          <button onClick={() => handleExerciseSelection('Plank')}>Plank</button>
+          <button onClick={() => handleExerciseSelection('Walking')}>Walking</button>
+          <button onClick={() => handleExerciseSelection('Running')}>Running</button>
+        </div>
 
         {isPromptVisible && (
           <div className="prompt">
@@ -45,10 +49,10 @@ function App() {
           </div>
         )}
 
-
         {showPageDuration && <Duration />} 
-        {showPageRep && <Rep />}
+        {showPageRep && <Rep setHighestRep={setHighestRep} highestRep={highestRep} />} 
 
+        {showPageRep && <Highscore highestRep={highestRep} />}
       </header>
     </div>
   );

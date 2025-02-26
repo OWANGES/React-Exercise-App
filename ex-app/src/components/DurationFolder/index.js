@@ -16,12 +16,11 @@ const Duration = () => {
       clearInterval(intervalIdRef.current);
     }
 
-
     return () => {
       console.log("Cleaning up interval...");
       clearInterval(intervalIdRef.current);
     };
-  }, [isRunning]); 
+  }, [isRunning]);
 
   const handleStartStop = () => {
     setIsRunning((prev) => !prev);
@@ -32,9 +31,15 @@ const Duration = () => {
     setSeconds(0);
   };
 
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
   return (
     <div>
-      <h1>{seconds}s</h1>
+      <h1>
+        {hours}h : {minutes}m : {remainingSeconds}s
+      </h1>
       <button onClick={handleStartStop}>
         {isRunning ? "Stop" : "Start"}
       </button>

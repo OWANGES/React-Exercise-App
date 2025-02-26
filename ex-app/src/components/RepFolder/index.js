@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 
-function Rep() {
+function Rep({ highestRep, setHighestRep }) {
   const [count, setCount] = useState(0);
 
   const handleIncrement = () => {
-    setCount(count + 1);
+    setCount(prevCount => {
+      const newCount = prevCount + 1;
+
+      if (newCount > highestRep) {
+        setHighestRep(newCount);
+      }
+
+      return newCount;
+    });
   };
 
   return (
     <div className="appPage1">
       <h1>Rep Tracking</h1>
-      <p>click the button to track reps!</p>
+      <p>Click the button to track reps!</p>
       <h2>Rep Count: {count}</h2>
-      <button onClick={handleIncrement}>count up!</button>
+      <button onClick={handleIncrement}>Count Up!</button>
     </div>
   );
 }

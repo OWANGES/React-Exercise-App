@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Global */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  height: 100vh;
+  background-image: linear-gradient(#D4B2C5, #EFE3EA); 
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: top;
+  text-align: center;
+  padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  background-color: #974a67;
+  color: #fff;
+  padding: 1em;
+  border-radius: 15px;
+  margin-bottom: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.container {
+  margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1, 1fr)); 
+  gap: 15px;
+  justify-items: center; 
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #AF6C86;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #8B4F6F;
+  transform: scale(1.05); 
+}
+
+button:focus {
+  outline: none; 
+}
+
+
+.prompt {
+  background-color: #974a67;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.prompt button {
+  background-color: #AF6C86;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prompt button:hover {
+  background-color: #8B4F6F;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); 
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 1.8rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; 
+  }
+
+  h1 {
+    font-size: 1.5rem; 
+  }
+
+  .prompt {
+    padding: 15px;
   }
 }
