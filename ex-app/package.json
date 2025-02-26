@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://OWANGES.github.io/React-Exercise-App",
   "predeploy": "yarn run build",
-  "deploy": "gh-pages -d dist",
+  "deploy": "gh-pages -d build",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
